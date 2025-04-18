@@ -1,1 +1,14 @@
-<p>sidebar works!</p>
+<aside class="w-64 p-4 bg-gray-100 h-full">
+    <div *ngIf="authService.isLoggedIn()">
+      <p class="font-bold">{{ authService.currentUser?.username }}</p>
+      <h3 class="mt-4 font-semibold">Playlist</h3>
+      <ul *ngIf="playlists.length > 0">
+        <li *ngFor="let video of playlists; let i = index" class="flex justify-between items-center">
+          {{ video.title }}
+          <button (click)="remove(i)" class="text-red-500 ml-2">x</button>
+        </li>
+      </ul>
+      <p *ngIf="playlists.length === 0" class="text-gray-500">Aucune vidéo dans votre playlist</p>
+    </div>
+  </aside>
+  

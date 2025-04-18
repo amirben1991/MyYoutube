@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  constructor (public authService: AuthService) {}
 
+  logout() {
+    this.authService.logout();
+    
+  }
 }
